@@ -26,13 +26,18 @@ jobs:
           mkdir -p exampleSite/themes/AltitudeDark
           rsync -av --exclude=exampleSite --exclude=.git ./ exampleSite/themes/AltitudeDark
 
-      # Step 4: Build the exampleSite
+      # Step 4: Update baseURL in hugo.toml
+      - name: Update baseURL
+        run: |
+          sed -i 's|https://example.org/|https://1090mhz.github.io/|' exampleSite/hugo.toml
+
+      # Step 5: Build the exampleSite
       - name: Build exampleSite
         run: |
           cd exampleSite
           hugo --minify
 
-      # Step 5: Deploy to GitHub Pages
+      # Step 6: Deploy to GitHub Pages
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
