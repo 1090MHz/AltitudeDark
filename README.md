@@ -22,7 +22,7 @@ This theme includes an `exampleSite` directory to help you quickly see how the t
    hugo server
    ```
 
-3. **View the Site in Your Browser**  
+3. **View the Site in Your Browser**
    Open your browser and go to `http://localhost:1313` to see the example site in action.
 
 Feel free to explore the `exampleSite/content` directory to understand how the content and configuration work with the `AltitudeDark` theme.
