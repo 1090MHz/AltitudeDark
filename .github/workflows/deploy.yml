@@ -29,7 +29,7 @@ jobs:
       # Step 4: Update baseURL in hugo.toml
       - name: Update baseURL
         run: |
-          sed -i 's|https://example.org/|https://1090mhz.github.io/|' exampleSite/hugo.toml
+          sed -i 's|https://example.org/|https://1090mhz.github.io/AltitudeDark/|' exampleSite/hugo.toml
 
       # Step 5: Build the exampleSite
       - name: Build exampleSite
