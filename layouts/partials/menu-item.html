@@ -1,0 +1,19 @@
+{{ $separators := .Params.separators | default (slice) }}
+<li>
+  <a href="{{ .Permalink }}">{{ .Title }}</a>
+  {{ if or .Sections .Pages }}
+  <ul aria-label="Submenu">
+    <!-- Include subsections -->
+    {{ range $index, $section := .Sections }} {{ partial "menu-item.html"
+    $section }} {{ if in $separators (add $index 1) }}
+    <li><hr class="menu-separator" /></li>
+    {{ end }} {{ end }}
+    <!-- Include regular pages, but exclude _index.md -->
+    {{ range $index, $page := .Pages }} {{ if not $page.IsSection }}
+    <li><a href="{{ $page.Permalink }}">{{ $page.Title }}</a></li>
+    {{ if in $separators (add $index 1) }}
+    <li><hr class="menu-separator" /></li>
+    {{ end }} {{ end }} {{ end }}
+  </ul>
+  {{ end }}
+</li>

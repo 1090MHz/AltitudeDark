@@ -1,0 +1,15 @@
+<header>
+  <nav>
+    <ul>
+      <!-- Include sections -->
+      {{ range .Site.Sections }} {{ partial "menu-item.html" . }} {{ end }}
+      <!-- Conditionally include top-level pages -->
+      {{ if .Site.Params.includeTopLevelPagesInMenu }} {{ range
+      .Site.RegularPages }}
+      <li>
+        <a href="{{ .Permalink }}">{{ .Title }}</a>
+      </li>
+      {{ end }} {{ end }}
+    </ul>
+  </nav>
+</header>
