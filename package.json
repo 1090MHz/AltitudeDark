@@ -1,0 +1,35 @@
+{
+  "name": "altitudedark",
+  "version": "1.0.0",
+  "description": "Hugo Theme",
+  "keywords": [
+    "Hugo",
+    "Theme",
+    "Dark",
+    "Tailwind"
+  ],
+  "homepage": "https://github.com/1090MHz/AltitudeDark#readme",
+  "bugs": {
+    "url": "https://github.com/1090MHz/AltitudeDark/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/1090MHz/AltitudeDark.git"
+  },
+  "license": "MIT",
+  "author": "1090MHz",
+  "main": "postcss.config.js",
+  "scripts": {
+    "build": "npx @tailwindcss/cli -i ./assets/css/tailwind.css -o ./static/css/tailwind.css",
+    "dev": "npx @tailwindcss/cli -i ./assets/css/tailwind.css -o ./static/css/tailwind.css --watch",
+    "postinstall": "npm run build"
+  },
+  "dependencies": {
+    "@tailwindcss/postcss": "^4.1.3",
+    "postcss": "^8.5.3",
+    "tailwindcss": "^4.1.3"
+  },
+  "devDependencies": {
+    "@tailwindcss/cli": "^4.1.3"
+  }
+}

@@ -26,7 +26,7 @@ Thumbs.db
 *.temp
 
 # Optional: Ignore compiled CSS if you're using PostCSS or Tailwind CLI
-static/css/tailwind.css
+# static/css/tailwind.css
 
 # Optional: Ignore Hugo's cache directory
 .cache/
