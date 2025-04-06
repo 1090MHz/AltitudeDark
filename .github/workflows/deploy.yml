@@ -1,4 +1,4 @@
-name: Deploy ExampleSite to GitHub Pages
+name: Deploy Example Site
 
 on:
   push:
@@ -20,6 +20,9 @@ jobs:
         with:
           hugo-version: 'latest'
 
+      - name: Copy exampleSite contents
+        run: |
+          cp -r exampleSite/* .  # Copy all contents from exampleSite into the root folder
       # Step 3: Build the exampleSite
       - name: Build exampleSite
         run: |
@@ -31,5 +34,5 @@ jobs:
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: exampleSite/public
+          publish_dir: ./public  # Hugo's default output directory
           publish_branch: gh-pages
