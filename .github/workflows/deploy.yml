@@ -20,19 +20,22 @@ jobs:
         with:
           hugo-version: 'latest'
 
-      - name: Copy exampleSite contents
+      # Step 3: Copy the theme into the exampleSite/themes directory
+      - name: Copy theme to exampleSite
         run: |
-          cp -r exampleSite/* .  # Copy all contents from exampleSite into the root folder
-      # Step 3: Build the exampleSite
+          mkdir -p exampleSite/themes/AltitudeDark
+          rsync -av --exclude=exampleSite --exclude=.git ./ exampleSite/themes/AltitudeDark
+
+      # Step 4: Build the exampleSite
       - name: Build exampleSite
         run: |
           cd exampleSite
           hugo --minify
 
-      # Step 4: Deploy to GitHub Pages
+      # Step 5: Deploy to GitHub Pages
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./public  # Hugo's default output directory
+          publish_dir: exampleSite/public  # Hugo's default output directory
           publish_branch: gh-pages
