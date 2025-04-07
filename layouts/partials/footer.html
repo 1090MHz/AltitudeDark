@@ -1,4 +1,25 @@
-<!-- layouts/partials/footer.html -->
-<footer>
-  <p>&copy; {{ now.Format "2006" }} My Hugo Site. All rights reserved.</p>
+<footer class="bg-gray-900 text-gray-400 text-center p-4">
+  <div class="container mx-auto flex flex-col items-center space-y-2">
+    <p>
+      &copy; {{ now.Format "2006" }} {{ .Site.Title }}. All rights reserved.
+    </p>
+    {{ if .Site.Params.footerLinks }}
+    <nav>
+      <ul class="flex space-x-4">
+        {{ range .Site.Params.footerLinks }}
+        <li>
+          <a
+            href="{{ .url }}"
+            class="text-blue-400 hover:text-blue-600"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            {{ .name }}
+          </a>
+        </li>
+        {{ end }}
+      </ul>
+    </nav>
+    {{ end }}
+  </div>
 </footer>

@@ -1,19 +1,34 @@
-{{ $separators := .Params.separators | default (slice) }}
-<li>
-  <a href="{{ .Permalink }}">{{ .Title }}</a>
+<li class="relative group">
+  <a
+    href="{{ .Permalink }}"
+    class="block px-4 py-2 text-gray-100 hover:bg-blue-600 {{ if or .IsMenuCurrent .IsMenuParent }}bg-blue-700{{ end }}"
+    aria-haspopup="true"
+    aria-expanded="false"
+  >
+    {{ .Title }}
+  </a>
   {{ if or .Sections .Pages }}
-  <ul aria-label="Submenu">
+  <ul
+    class="
+      hidden
+      group-hover:block
+      absolute
+      bg-gray-800
+      text-gray-100
+      border border-gray-700
+      shadow-lg
+    "
+  >
     <!-- Include subsections -->
-    {{ range $index, $section := .Sections }} {{ partial "menu-item.html"
-    $section }} {{ if in $separators (add $index 1) }}
-    <li><hr class="menu-separator" /></li>
-    {{ end }} {{ end }}
-    <!-- Include regular pages, but exclude _index.md -->
-    {{ range $index, $page := .Pages }} {{ if not $page.IsSection }}
-    <li><a href="{{ $page.Permalink }}">{{ $page.Title }}</a></li>
-    {{ if in $separators (add $index 1) }}
-    <li><hr class="menu-separator" /></li>
-    {{ end }} {{ end }} {{ end }}
+    {{ range .Sections }} {{ partial "menu-item.html" . }} {{ end }}
+    <!-- Include regular pages -->
+    {{ range .Pages }}
+    <li>
+      <a href="{{ .Permalink }}" class="block px-4 py-2 hover:bg-blue-600">
+        {{ .Title }}
+      </a>
+    </li>
+    {{ end }}
   </ul>
   {{ end }}
 </li>
