@@ -3,6 +3,9 @@ public/
 resources/_gen/
 hugo_stats.json
 
+# Tailwind CSS output
+static/css/tailwind.css
+
 # Node.js dependencies (if using npm/yarn for tools like Tailwind or PostCSS)
 node_modules/
 
