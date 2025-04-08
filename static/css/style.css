@@ -64,7 +64,7 @@ nav ul li:hover > ul {
 nav ul ul ul {
   top: 0; /* Align nested submenu with its parent */
   left: 100%; /* Position nested submenu to the right of its parent */
-  margin-left: 1px; /* Add a small gap to prevent overlap */
+  margin-left: 0px; /* No gap to prevent loss of hover focus*/
 }
 
 /* Submenu Links */
