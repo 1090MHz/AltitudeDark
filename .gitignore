@@ -38,3 +38,6 @@ build/
 
 # Tailwind config cache
 .tailwind-cache/
+
+# Ignore lock files
+package-lock.json
