@@ -1,33 +1,49 @@
-<li class="relative group">
-  <a
-    href="{{ .Permalink }}"
-    class="block px-4 py-2 text-gray-100 hover:bg-blue-600 {{ if or .IsMenuCurrent .IsMenuParent }}bg-blue-700{{ end }}"
-    aria-haspopup="true"
-    aria-expanded="false"
-  >
-    {{ .Title }}
+{{ $separators := .Params.separators | default (slice) }}
+{{ $depth := .Scratch.Get "menu-depth" }}
+<li class="relative group/menu-depth-{{ $depth }}">
+  <a href="{{ .Permalink }}" class="block px-2 py-1 text-[#f8fafb] hover:bg-[#1678b5]">
+    {{ .Title }} (Depth: {{ .Scratch.Get "menu-depth" }}) 
   </a>
+
   {{ if or .Sections .Pages }}
-  <ul
-    class="
-      hidden
-      group-hover:block
-      absolute
-      bg-gray-800
-      text-gray-100
-      border border-gray-700
-      shadow-lg
-    "
-  >
+  <!-- Set the submenu class based on the depth -->
+  {{ $ulClass := "" }}
+  {{ if eq $depth 0 }}
+  {{ $ulClass = printf "absolute hidden bg-[#23282e] list-none p-0 z-50 min-w-[200px] top-full left-0 group-hover/menu-depth-%d:block" $depth }}
+  {{ else if eq $depth 1 }}
+  {{ $ulClass = printf "absolute hidden bg-[#23282e] list-none p-0 z-50 top-0 left-full ml-0 group-hover/menu-depth-%d:block" $depth }}
+  <!-- Submenu depth 1 -->
+  {{ else }}
+  {{ $ulClass = printf "absolute hidden bg-[#23282e] list-none p-0 z-50 top-0 left-full ml-0 group-hover/menu-depth-%d:block" $depth }}
+  <!-- Submenu depth >1 -->
+  {{ end }}
+
+  <ul class="{{ $ulClass }}" aria-label="Submenu">
     <!-- Include subsections -->
-    {{ range .Sections }} {{ partial "menu-item.html" . }} {{ end }}
-    <!-- Include regular pages -->
-    {{ range .Pages }}
+    {{ range $index, $section := .Sections }}
+    {{ .Scratch.Set "menu-depth" (add ($.Scratch.Get "menu-depth") 1) }}
+    {{ partial "menu-item.html" $section }}
+    {{ if in $separators (add $index 1) }}
     <li>
-      <a href="{{ .Permalink }}" class="block px-4 py-2 hover:bg-blue-600">
-        {{ .Title }}
+      <hr class="border-t border-[#5a6067] my-2" />
+    </li>
+    {{ end }}
+    {{ end }}
+
+    <!-- Include regular pages, but exclude _index.md -->
+    {{ range $index, $page := .Pages }}
+    {{ if not $page.IsSection }}
+    <li>
+      <a href="{{ $page.Permalink }}" class="block px-2 py-1 text-[#f8fafb] hover:bg-[#1678b5]">
+        {{ $page.Title }} No Link
       </a>
     </li>
+    {{ if in $separators (add $index 1) }}
+    <li>
+      <hr class="border-t border-[#5a6067] my-2" />
+    </li>
+    {{ end }}
+    {{ end }}
     {{ end }}
   </ul>
   {{ end }}

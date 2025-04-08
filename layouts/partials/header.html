@@ -1,17 +1,22 @@
 <header class="bg-gray-800 text-gray-100">
-  <nav class="container mx-auto p-4">
-    <ul class="flex space-x-4">
+  <nav>
+    <ul class="flex space-x-4 bg-menu-bg list-none p-0 m-0">
       <!-- Include sections -->
-      {{ range .Site.Sections }} {{ partial "menu-item.html" . }} {{ end }}
+      {{ range .Site.Sections }}
+        {{ .Scratch.Set "menu-depth" 0 }}
+        {{ partial "menu-item.html" . }}
+      {{ end }}
+
       <!-- Conditionally include top-level pages -->
-      {{ if .Site.Params.includeTopLevelPagesInMenu }} {{ range
-      .Site.RegularPages }}
-      <li>
-        <a href="{{ .Permalink }}" class="text-gray-100 hover:text-blue-400">
-          {{ .Title }}
-        </a>
-      </li>
-      {{ end }} {{ end }}
+      {{ if .Site.Params.includeTopLevelPagesInMenu }}
+        {{ range .Site.RegularPages }}
+          <li class="relative group">
+            <a href="{{ .Permalink }}" class="text-menu-text hover:text-link-blue">
+              {{ .Title }}
+            </a>
+          </li>
+        {{ end }}
+      {{ end }}
     </ul>
   </nav>
 </header>
