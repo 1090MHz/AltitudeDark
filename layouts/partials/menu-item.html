@@ -2,20 +2,16 @@
 {{ $depth := .Scratch.Get "menu-depth" }}
 <li class="relative group/menu-depth-{{ $depth }}">
   <a href="{{ .Permalink }}" class="block px-2 py-1 text-[#f8fafb] hover:bg-[#1678b5]">
-    {{ .Title }} (Depth: {{ .Scratch.Get "menu-depth" }}) 
+    {{ .Title }}
   </a>
 
   {{ if or .Sections .Pages }}
   <!-- Set the submenu class based on the depth -->
   {{ $ulClass := "" }}
   {{ if eq $depth 0 }}
-  {{ $ulClass = printf "absolute hidden bg-[#23282e] list-none p-0 z-50 min-w-[200px] top-full left-0 group-hover/menu-depth-%d:block" $depth }}
-  {{ else if eq $depth 1 }}
-  {{ $ulClass = printf "absolute hidden bg-[#23282e] list-none p-0 z-50 top-0 left-full ml-0 group-hover/menu-depth-%d:block" $depth }}
-  <!-- Submenu depth 1 -->
+  {{ $ulClass = printf "absolute hidden bg-[#23282e] list-none p-0 z-50 min-w-max top-full left-0 group-hover/menu-depth-%d:block" $depth }}
   {{ else }}
-  {{ $ulClass = printf "absolute hidden bg-[#23282e] list-none p-0 z-50 top-0 left-full ml-0 group-hover/menu-depth-%d:block" $depth }}
-  <!-- Submenu depth >1 -->
+  {{ $ulClass = printf "absolute hidden bg-[#23282e] list-none p-0 z-50 min-w-max top-0 left-full ml-0 group-hover/menu-depth-%d:block" $depth }}
   {{ end }}
 
   <ul class="{{ $ulClass }}" aria-label="Submenu">
@@ -35,7 +31,7 @@
     {{ if not $page.IsSection }}
     <li>
       <a href="{{ $page.Permalink }}" class="block px-2 py-1 text-[#f8fafb] hover:bg-[#1678b5]">
-        {{ $page.Title }} No Link
+        {{ $page.Title }}
       </a>
     </li>
     {{ if in $separators (add $index 1) }}
