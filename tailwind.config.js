@@ -1,3 +1,7 @@
+/** @type {import('tailwindcss').Config} */
+// const { fontFamily } = require("tailwindcss/defaultTheme");
+// const { colors } = require("tailwindcss/defaultTheme");
+
 module.exports = {
   content: ["./layouts/**/*.html", "./content/**/*.md", "./static/**/*.js"],
   theme: {
@@ -12,11 +16,19 @@ module.exports = {
       },
       fontFamily: {
         roboto: ["Roboto", "sans-serif"], // Roboto font for menu items
-        comic: ['"Comic Neue"', "Comic Sans MS", "Comic Sans", "cursive"], // Comic Neue for body
+        comic: ["Comic Neue", "Comic Sans MS", "Comic Sans", "cursive"], // Comic Neue for body
       },
     },
   },
   safelist: [
+    "font-roboto",
+    "font-comic",
+    "menu-bg", // Menu background color
+    "menu-hover", // Hover background color
+    "menu-text", // Menu text color
+    "link-blue", // Hyperlink color
+    "body-bg", // Match X-Plane 12 background color
+    "body-text", // Match X-Plane 12 text color
     "group-hover/menu-depth-0:block",
     "group-hover/menu-depth-1:block",
     "group-hover/menu-depth-2:block",
