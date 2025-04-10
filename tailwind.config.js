@@ -36,5 +36,5 @@ module.exports = {
     "group-hover/menu-depth-4:block",
     // Although it is possible to use more than 4 levels of menu-depth, it is not recommended
   ],
-  plugins: [],
+  plugins: [require('@tailwindcss/typography')],
 };
