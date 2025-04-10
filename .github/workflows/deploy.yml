@@ -14,30 +14,42 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      # Step 2: Set up Hugo
+      # Step 2: Set up Node.js (for Tailwind build)
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '20'
+
+      # Step 3: Install dependencies and build Tailwind CSS
+      - name: Install Node.js dependencies and build CSS
+        run: |
+          npm ci
+          npm run build
+
+      # Step 4: Set up Hugo
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v2
         with:
           hugo-version: 'latest'
 
-      # Step 3: Copy the theme into the exampleSite/themes directory
+      # Step 5: Copy the theme into the exampleSite/themes directory
       - name: Copy theme to exampleSite
         run: |
           mkdir -p exampleSite/themes/AltitudeDark
           rsync -av --exclude=exampleSite --exclude=.git ./ exampleSite/themes/AltitudeDark
 
-      # Step 4: Update baseURL in hugo.toml
+      # Step 6: Update baseURL in hugo.toml
       - name: Update baseURL
         run: |
           sed -i 's|https://example.org/|https://1090mhz.github.io/AltitudeDark/|' exampleSite/hugo.toml
 
-      # Step 5: Build the exampleSite
+      # Step 7: Build the exampleSite
       - name: Build exampleSite
         run: |
           cd exampleSite
           hugo --minify
 
-      # Step 6: Deploy to GitHub Pages
+      # Step 8: Deploy to GitHub Pages
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
