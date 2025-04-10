@@ -45,7 +45,7 @@ jobs:
           if [ "${{ github.ref }}" == "refs/heads/main" ]; then
             sed -i 's|https://example.org/|https://1090mhz.github.io/AltitudeDark/|' exampleSite/hugo.toml
           elif [ "${{ github.ref }}" == "refs/heads/tailwind" ]; then
-            sed -i 's|https://example.org/|https://1090mhz.github.io/AltitudeDark-tailwind/|' exampleSite/hugo.toml
+            sed -i 's|https://example.org/|https://1090mhz.github.io/AltitudeDark/tailwind/|' exampleSite/hugo.toml
           fi
 
           # Step 7: Build the exampleSite
@@ -70,4 +70,6 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: exampleSite/public
-          publish_branch: gh-pages-tailwind # Tailwind deploy branch
+          # publish_branch: gh-pages-tailwind # Tailwind deploy branch
+          publish_branch: gh-pages
+          destination_dir: tailwind
