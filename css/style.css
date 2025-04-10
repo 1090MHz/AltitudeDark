@@ -1,0 +1,86 @@
+/* Apply Comic Sans to the body */
+body {
+  font-family: "Comic Sans MS", "Comic Sans", cursive;
+  margin: 0;
+  padding: 0;
+  background-color: #000000; /* Optional: Match X-Plane 12 background color */
+  color: #f8fafb; /* Optional: Match X-Plane 12 text color */
+}
+
+/* Hyperlink Styles */
+a {
+  color: #3794ff; /* Bright blue for hyperlinks */
+  text-decoration: none; /* Remove underline by default */
+}
+
+a:hover {
+  text-decoration: underline; /* Add underline on hover for better visibility */
+}
+
+/* Dropdown Menu Styles */
+nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  background-color: #23282e; /* Replace with X-Plane 12 menu background color */
+}
+
+nav ul li {
+  position: relative;
+}
+
+nav ul li a {
+  font-family: "Roboto", sans-serif; /* Use Roboto for menu items */
+  display: block;
+  padding: 0.25rem 0.5rem; /* Reduced padding for less height */
+  color: #f8fafb; /* Replace with X-Plane 12 menu text color */
+  text-decoration: none;
+}
+
+nav ul li a:hover {
+  background-color: #1678b5; /* Replace with X-Plane 12 hover background color */
+  text-decoration: none;
+}
+
+/* Submenu Styles */
+nav ul ul {
+  display: none;
+  position: absolute;
+  top: 100%; /* Position submenu below the parent item */
+  left: 0;
+  background-color: #23282e; /* Replace with X-Plane 12 submenu background color */
+  padding: 0;
+  list-style: none;
+  z-index: 1000;
+  min-width: 200px;
+}
+
+nav ul li:hover > ul {
+  display: block; /* Show submenu on hover */
+}
+
+/* Nested Submenu Styles (Fly-Out) */
+nav ul ul ul {
+  top: 0; /* Align nested submenu with its parent */
+  left: 100%; /* Position nested submenu to the right of its parent */
+  margin-left: 0px; /* No gap to prevent loss of hover focus*/
+}
+
+/* Submenu Links */
+nav ul ul li a {
+  font-family: "Roboto", sans-serif; /* Ensure Roboto is applied to submenus */
+  padding: 0.25rem 0.5rem;
+  white-space: nowrap;
+  color: #f8fafb; /* Replace with X-Plane 12 submenu text color */
+}
+
+nav ul ul li a:hover {
+  background-color: #1678b5; /* Replace with X-Plane 12 submenu hover background color */
+}
+
+.menu-separator {
+  border: none;
+  border-top: 1px solid #5a6067; /* Match X-Plane 12 menu style */
+  margin: 0.5rem 0;
+}
