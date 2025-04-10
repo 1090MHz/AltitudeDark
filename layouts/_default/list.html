@@ -3,9 +3,9 @@
 <div class="prose mb-6">{{ .Content }}</div>
 {{ if not .Params.disableList }}
 <ul class="space-y-2">
-  {{ range .Pages }}
+  {{ range .Pages.ByWeight }}
   <li>
-    <a href="{{ .Permalink }}" class="text-blue-500 hover:underline">
+    <a href="{{ .RelPermalink }}" class="text-blue-500 hover:underline">
       {{ .Title }}
     </a>
   </li>
