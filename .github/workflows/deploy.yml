@@ -42,9 +42,13 @@ jobs:
       # Step 6: Update baseURL in hugo.toml
       - name: Update baseURL
         run: |
-          sed -i 's|https://example.org/|https://1090mhz.github.io/AltitudeDark/|' exampleSite/hugo.toml
+          if [ "${{ github.ref }}" == "refs/heads/main" ]; then
+            sed -i 's|https://example.org/|https://1090mhz.github.io/AltitudeDark/|' exampleSite/hugo.toml
+          elif [ "${{ github.ref }}" == "refs/heads/tailwind" ]; then
+            sed -i 's|https://example.org/|https://1090mhz.github.io/AltitudeDark-tailwind/|' exampleSite/hugo.toml
+          fi
 
-      # Step 7: Build the exampleSite
+          # Step 7: Build the exampleSite
       - name: Build exampleSite
         run: |
           cd exampleSite
