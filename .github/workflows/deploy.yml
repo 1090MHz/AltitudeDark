@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - main
+      - tailwind # Add any other branches you want to trigger the workflow
 
 jobs:
   deploy:
@@ -49,10 +50,20 @@ jobs:
           cd exampleSite
           hugo --minify
 
-      # Step 8: Deploy to GitHub Pages
+      # Step 8: Deploy to GitHub Pages from the main branch
       - name: Deploy to GitHub Pages
+        if: github.ref == 'refs/heads/main'
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: exampleSite/public  # Hugo's default output directory
-          publish_branch: gh-pages
+          publish_dir: exampleSite/public
+          publish_branch: gh-pages  # Main deploy branch
+
+      # Step 8b: Deploy to GitHub Pages from the Tailwind branch
+      - name: Deploy to GitHub Pages (tailwind)
+        if: github.ref == 'refs/heads/tailwind'
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: exampleSite/public
+          publish_branch: gh-pages-tailwind # Tailwind deploy branch
