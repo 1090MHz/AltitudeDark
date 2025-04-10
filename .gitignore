@@ -43,4 +43,5 @@ build/
 .tailwind-cache/
 
 # Ignore lock files
-package-lock.json
+# package-lock.json is committed to ensure consistent and reproducible dependency installs
+# for all users, environments, and CI/CD pipelines.
