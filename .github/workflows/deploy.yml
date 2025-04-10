@@ -39,18 +39,13 @@ jobs:
           mkdir -p exampleSite/themes/AltitudeDark
           rsync -av --exclude=exampleSite --exclude=.git ./ exampleSite/themes/AltitudeDark
 
-      # Step 6: Update baseURL in hugo.toml
-      - name: Update baseURL
-        run: |
-          sed -i 's|https://example.org/|https://1090mhz.github.io/AltitudeDark/|' exampleSite/hugo.toml
-
-      # Step 7: Build the exampleSite
+      # Step 6: Build the exampleSite
       - name: Build exampleSite
         run: |
           cd exampleSite
-          hugo --minify
+          hugo --minify --themesDir ../.. --baseURL https://1090mhz.github.io/AltitudeDark/
 
-      # Step 8: Deploy to GitHub Pages from the main branch
+      # Step 7: Deploy to GitHub Pages from the main branch
       - name: Deploy to GitHub Pages
         if: github.ref == 'refs/heads/main'
         uses: peaceiris/actions-gh-pages@v3
@@ -59,7 +54,7 @@ jobs:
           publish_dir: exampleSite/public
           publish_branch: gh-pages  # Main deploy branch
 
-      # Step 8b: Deploy to GitHub Pages from the Tailwind branch
+      # Step 7b: Deploy to GitHub Pages from the Tailwind branch
       - name: Deploy to GitHub Pages (tailwind)
         if: github.ref == 'refs/heads/tailwind'
         uses: peaceiris/actions-gh-pages@v3
