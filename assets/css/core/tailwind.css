@@ -1,0 +1,54 @@
+@import "tailwindcss";
+
+/* Core imports */
+@import "./core/tailwind.css";
+@import "./core/fonts.css";
+
+/* Foundational styles */
+@import "./foundational/custom-colors.css";     /* Colors */
+@import "./foundational/custom-typography.css"; /* Typography */
+@import "./foundational/custom-spacing.css";    /* Spacing */
+@import "./foundational/custom-shadows.css";    /* Shadows */
+@import "./foundational/custom-borders.css";    /* Borders */
+
+/* Layout and structure */
+@import "./layout/custom-toolbars.css";   /* Toolbars */
+@import "./layout/custom-headers.css";    /* Headers */
+@import "./layout/custom-navigation.css"; /* Navigation */
+@import "./layout/custom-sidebars.css";   /* Sidebars */
+@import "./layout/custom-footers.css";    /* Footers */
+@import "./layout/custom-prose.css";      /* Prose */
+
+/* Components */
+@import "./components/custom-buttons.css";    /* Buttons */
+@import "./components/custom-lists.css";      /* Lists */
+@import "./components/custom-links.css";      /* Links */
+@import "./components/custom-cards.css";      /* Cards */
+@import "./components/custom-tables.css";     /* Tables */
+@import "./components/custom-forms.css";      /* Forms */
+@import "./components/custom-images.css";     /* Images */
+@import "./components/custom-dropdowns.css";  /* Dropdowns */
+@import "./components/custom-modals.css";     /* Modals */
+@import "./components/custom-alerts.css";     /* Alerts */
+@import "./components/custom-tooltips.css";   /* Tooltips */
+
+/* Indicators and navigation aids */
+@import "./indicators/custom-pagination.css";  /* Pagination */
+@import "./indicators/custom-breadcrumbs.css"; /* Breadcrumbs */
+
+/* Status and progress components */
+@import "./status/custom-progress-bars.css"; /* Progress Bars */
+@import "./status/custom-badges.css";        /* Badges */
+@import "./status/custom-tags.css";          /* Tags */
+@import "./status/custom-avatars.css";       /* Avatars */
+@import "./status/custom-icons.css";         /* Icons */
+
+/* Feedback and notifications */
+@import "./feedback/custom-notifications.css"; /* Notifications */
+@import "./feedback/custom-alerts.css";        /* Alerts */
+
+/* Loading and effects */
+@import "./effects/custom-loaders.css";       /* Loaders */
+@import "./effects/custom-spinners.css";      /* Spinners */
+@import "./effects/custom-animations.css";    /* Animations */
+@import "./effects/custom-transitions.css";   /* Transitions */
