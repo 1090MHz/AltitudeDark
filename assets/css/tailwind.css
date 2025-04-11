@@ -1,7 +1,6 @@
 @import "tailwindcss";
 
 /* Core imports */
-@import "./core/tailwind.css";
 @import "./core/fonts.css";
 
 /* Foundational styles */
