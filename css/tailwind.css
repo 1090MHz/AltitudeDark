@@ -667,6 +667,9 @@
   .w-full {
     width: 100%;
   }
+  .max-w-full {
+    max-width: 100%;
+  }
   .min-w-max {
     min-width: max-content;
   }
