@@ -667,11 +667,14 @@
   .w-full {
     width: 100%;
   }
+  .w-max {
+    width: max-content;
+  }
   .max-w-full {
     max-width: 100%;
   }
-  .min-w-max {
-    min-width: max-content;
+  .min-w-full {
+    min-width: 100%;
   }
   .list-none {
     list-style-type: none;
