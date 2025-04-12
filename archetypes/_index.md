@@ -1,5 +1,6 @@
 ---
 title: "{{ replace .Name "-" " " | title }}"
+showTitle: true
 weight: 1
 separators: []
 disableList: false
