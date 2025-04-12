@@ -664,6 +664,9 @@
   .hidden {
     display: none;
   }
+  .min-h-screen {
+    min-height: 100vh;
+  }
   .w-full {
     width: 100%;
   }
@@ -675,6 +678,9 @@
   }
   .min-w-full {
     min-width: 100%;
+  }
+  .flex-grow {
+    flex-grow: 1;
   }
   .list-none {
     list-style-type: none;
