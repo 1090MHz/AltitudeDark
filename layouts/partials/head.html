@@ -1,14 +1,14 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>{{ .Title | default "My Hugo Site" }}</title>
-<meta name="description" content="{{ .Description | default "A Hugo site using the AltitudeDark theme." }}">
+<meta name="description" content="{{ .Description | default 'A Hugo site using the AltitudeDark theme.'}}">
 
 <!-- Preconnect to Google Fonts for faster font loading -->
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
 <!-- Load the main Tailwind CSS file -->
-<link rel="stylesheet" href="{{ "css/tailwind.css" | relURL }}">
+<link rel="stylesheet" href="{{ 'css/tailwind.css' | relURL }}">
 
 <!-- 
   Fonts are imported in the Tailwind CSS file (assets/css/tailwind.css) using @import statements.
