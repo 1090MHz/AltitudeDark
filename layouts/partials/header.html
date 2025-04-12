@@ -1,5 +1,6 @@
 <header class="bg-gray-800 text-gray-100">
-  <nav class="{{ .Site.Params.menuFont | default 'font-roboto' }}">
+  {{ $font := .Site.Params.menuFont | default "font-roboto" }}
+  <nav class="{{ $font }}">
     <ul class="flex space-x-4 bg-menu-bg list-none p-0 m-0">
       <!-- Add HOME button with Font Awesome icon -->
       <li>
