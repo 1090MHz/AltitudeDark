@@ -9,9 +9,9 @@
   <!-- Set the submenu class based on the depth -->
   {{ $ulClass := "" }}
   {{ if eq $depth 0 }}
-  {{ $ulClass = printf "absolute hidden bg-[#23282e] list-none p-0 z-50 min-w-max top-full left-0 group-hover/menu-depth-%d:block" $depth }}
+  {{ $ulClass = printf "absolute hidden bg-[#23282e] list-none p-0 z-50 w-max min-w-full top-full left-0 group-hover/menu-depth-%d:block" $depth }}
   {{ else }}
-  {{ $ulClass = printf "absolute hidden bg-[#23282e] list-none p-0 z-50 min-w-max top-0 left-full ml-0 group-hover/menu-depth-%d:block" $depth }}
+  {{ $ulClass = printf "absolute hidden bg-[#23282e] list-none p-0 z-50 w-max min-w-full top-0 left-full ml-0 group-hover/menu-depth-%d:block" $depth }}
   {{ end }}
 
   <ul class="{{ $ulClass }}" aria-label="Submenu">
