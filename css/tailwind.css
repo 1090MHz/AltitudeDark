@@ -174,26 +174,8 @@
   .visible {
     visibility: visible;
   }
-  .absolute {
-    position: absolute;
-  }
   .relative {
     position: relative;
-  }
-  .top-0 {
-    top: calc(var(--spacing) * 0);
-  }
-  .top-full {
-    top: 100%;
-  }
-  .left-0 {
-    left: calc(var(--spacing) * 0);
-  }
-  .left-full {
-    left: 100%;
-  }
-  .z-50 {
-    z-index: 50;
   }
   .container {
     width: 100%;
@@ -218,9 +200,6 @@
   }
   .mx-auto {
     margin-inline: auto;
-  }
-  .my-2 {
-    margin-block: calc(var(--spacing) * 2);
   }
   .prose {
     color: var(--tw-prose-body);
@@ -649,9 +628,6 @@
   .mb-8 {
     margin-bottom: calc(var(--spacing) * 8);
   }
-  .ml-0 {
-    margin-left: calc(var(--spacing) * 0);
-  }
   .block {
     display: block;
   }
@@ -661,23 +637,14 @@
   .flex {
     display: flex;
   }
-  .hidden {
-    display: none;
-  }
   .min-h-screen {
     min-height: 100vh;
   }
   .w-full {
     width: 100%;
   }
-  .w-max {
-    width: max-content;
-  }
   .max-w-full {
     max-width: 100%;
-  }
-  .min-w-full {
-    min-width: 100%;
   }
   .flex-grow {
     flex-grow: 1;
@@ -715,16 +682,6 @@
       margin-inline-end: calc(calc(var(--spacing) * 4) * calc(1 - var(--tw-space-x-reverse)));
     }
   }
-  .border-t {
-    border-top-style: var(--tw-border-style);
-    border-top-width: 1px;
-  }
-  .border-\[\#5a6067\] {
-    border-color: #5a6067;
-  }
-  .bg-\[\#23282e\] {
-    background-color: #23282e;
-  }
   .bg-gray-800 {
     background-color: var(--color-gray-800);
   }
@@ -737,14 +694,8 @@
   .p-4 {
     padding: calc(var(--spacing) * 4);
   }
-  .px-2 {
-    padding-inline: calc(var(--spacing) * 2);
-  }
   .px-4 {
     padding-inline: calc(var(--spacing) * 4);
-  }
-  .py-1 {
-    padding-block: calc(var(--spacing) * 1);
   }
   .py-2 {
     padding-block: calc(var(--spacing) * 2);
@@ -763,9 +714,6 @@
   .font-bold {
     --tw-font-weight: var(--font-weight-bold);
     font-weight: var(--font-weight-bold);
-  }
-  .text-\[\#f8fafb\] {
-    color: #f8fafb;
   }
   .text-blue-400 {
     color: var(--color-blue-400);
@@ -817,13 +765,6 @@
       }
     }
   }
-  .hover\:bg-\[\#1678b5\] {
-    &:hover {
-      @media (hover: hover) {
-        background-color: #1678b5;
-      }
-    }
-  }
   .hover\:text-blue-600 {
     &:hover {
       @media (hover: hover) {
@@ -857,11 +798,6 @@
   inherits: false;
   initial-value: 0;
 }
-@property --tw-border-style {
-  syntax: "*";
-  inherits: false;
-  initial-value: solid;
-}
 @property --tw-font-weight {
   syntax: "*";
   inherits: false;
@@ -871,7 +807,6 @@
     *, ::before, ::after, ::backdrop {
       --tw-space-y-reverse: 0;
       --tw-space-x-reverse: 0;
-      --tw-border-style: solid;
       --tw-font-weight: initial;
     }
   }
