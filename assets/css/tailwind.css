@@ -2,54 +2,52 @@
 @plugin "@tailwindcss/typography";
 /* @config "./tailwind.config.js"; */
 
-/* Core imports */
-@import "./core/fonts.css";
-
-/* Foundational styles */
-@import "./foundational/custom-colors.css";     /* Colors */
-@import "./foundational/custom-typography.css"; /* Typography */
-@import "./foundational/custom-spacing.css";    /* Spacing */
-@import "./foundational/custom-shadows.css";    /* Shadows */
-@import "./foundational/custom-borders.css";    /* Borders */
-
-/* Layout and structure */
-@import "./layout/custom-toolbars.css";   /* Toolbars */
-@import "./layout/custom-headers.css";    /* Headers */
-@import "./layout/custom-navigation.css"; /* Navigation */
-@import "./layout/custom-sidebars.css";   /* Sidebars */
-@import "./layout/custom-footers.css";    /* Footers */
-@import "./layout/custom-prose.css";      /* Prose */
+/* Base styles */
+@import "./base/colors.css";           /* Global color definitions */
+@import "./base/fonts.css";            /* Global font settings */
+@import "./base/preflight.css";        /* Normalize or reset styles */
+@import "./base/typography.css";       /* Base typography styles */
 
 /* Components */
-@import "./components/custom-buttons.css";    /* Buttons */
-@import "./components/custom-lists.css";      /* Lists */
-@import "./components/custom-links.css";      /* Links */
-@import "./components/custom-cards.css";      /* Cards */
-@import "./components/custom-tables.css";     /* Tables */
-@import "./components/custom-forms.css";      /* Forms */
-@import "./components/custom-images.css";     /* Images */
-@import "./components/custom-dropdowns.css";  /* Dropdowns */
-@import "./components/custom-modals.css";     /* Modals */
-@import "./components/custom-alerts.css";     /* Alerts */
-@import "./components/custom-tooltips.css";   /* Tooltips */
+@import "./components/alerts.css";     /* Custom alerts */
+@import "./components/buttons.css";    /* Custom buttons */
+@import "./components/cards.css";      /* Custom cards */
+@import "./components/dropdowns.css";  /* Custom dropdowns */
+@import "./components/forms.css";      /* Custom forms */
+@import "./components/images.css";     /* Image gallery, avatars, etc. */
+@import "./components/links.css";      /* Custom links */
+@import "./components/modals.css";     /* Custom modals */
+@import "./components/tables.css";     /* Custom tables */
+@import "./components/tooltips.css";   /* Custom tooltips */
 
-/* Indicators and navigation aids */
-@import "./indicators/custom-pagination.css";  /* Pagination */
-@import "./indicators/custom-breadcrumbs.css"; /* Breadcrumbs */
+/* Effects */
+@import "./effects/loaders.css";       /* Loader animations (e.g., spinners) */
+@import "./effects/spinners.css";      /* Custom spinner styles */
+@import "./effects/transitions.css";   /* Transition-related animations */
 
-/* Status and progress components */
-@import "./status/custom-progress-bars.css"; /* Progress Bars */
-@import "./status/custom-badges.css";        /* Badges */
-@import "./status/custom-tags.css";          /* Tags */
-@import "./status/custom-avatars.css";       /* Avatars */
-@import "./status/custom-icons.css";         /* Icons */
+/* Indicators */
+@import "./indicators/badges.css";     /* Badge styles */
+@import "./indicators/breadcrumbs.css";/* Breadcrumb styles */
+@import "./indicators/pagination.css"; /* Pagination styles */
+@import "./indicators/progress.css";   /* Progress bar styles */
+@import "./indicators/tags.css";       /* Tag styles */
 
-/* Feedback and notifications */
-@import "./feedback/custom-notifications.css"; /* Notifications */
-@import "./feedback/custom-alerts.css";        /* Alerts */
+/* Layout and structure */
+@import "./layout/footers.css";        /* Footer styles */
+@import "./layout/headers.css";        /* Header styles */
+@import "./layout/navigation.css";     /* Navigation menu and items */
+@import "./layout/sidebars.css";       /* Sidebar styles */
+@import "./layout/toolbars.css";       /* Toolbar styles */
 
-/* Loading and effects */
-@import "./effects/custom-loaders.css";       /* Loaders */
-@import "./effects/custom-spinners.css";      /* Spinners */
-@import "./effects/custom-animations.css";    /* Animations */
-@import "./effects/custom-transitions.css";   /* Transitions */
+/* Themes */
+@import "./themes/dark.css";           /* Dark mode theme styles */
+@import "./themes/light.css";          /* Light mode theme styles (if applicable) */
+
+/* Utilities */
+@import "./utilities/animations.css";  /* Keyframe animation utilities */
+@import "./utilities/borders.css";     /* Border width, radius, and color utilities */
+@import "./utilities/lists.css";       /* List-specific utility classes (optional) */
+@import "./utilities/shadows.css";     /* Shadow utilities */
+@import "./utilities/spacing.css";     /* Margin, padding, gap utilities */
+@import "./utilities/transitions.css"; /* Transition effects */
+@import "./utilities/z-index.css";     /* Z-index utilities */
