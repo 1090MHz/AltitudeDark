@@ -2,5 +2,5 @@
 title: "Show Plugin Admin"
 weight: 1
 ---
-
-Show Plugin Admin
+# 
+how Plugin Admin
