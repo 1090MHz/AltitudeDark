@@ -1,30 +1,3 @@
-<header class="bg-gray-800 text-gray-100">
-  {{ $font := .Site.Params.menuFont | default "font-roboto" }}
-  <nav class="{{ $font }}">
-    <ul class="flex space-x-4 bg-menu-bg list-none p-0 m-0">
-      <!-- Add HOME button with Font Awesome icon -->
-      <li>
-        <a href="/" class="text-menu-text hover:text-link-blue font-bold px-4 py-2 flex items-center space-x-2">
-          <i class="fas fa-home"></i> <!-- Font Awesome Home Icon -->
-          
-            </a>
-          </li>
-      <!-- Include sections -->
-      {{ range .Site.Sections }}
-        {{ .Scratch.Set "menu-depth" 0 }}
-        {{ partial "menu-item.html" . }}
-      {{ end }}
-
-      <!-- Conditionally include top-level pages -->
-      {{ if .Site.Params.includeTopLevelPagesInMenu }}
-        {{ range .Site.RegularPages }}
-          <li class="relative group">
-            <a href="{{ .Permalink }}" class="text-menu-text hover:text-link-blue">
-              {{ .Title }}
-            </a>
-          </li>
-        {{ end }}
-      {{ end }}
-    </ul>
-  </nav>
+<header class="{{ .Site.Params.navBg | default " bg-gray-800" }} {{ .Site.Params.navText | default "text-gray-100" }}">
+  {{ partial "nav.html" . }}
 </header>
