@@ -1,7 +1,8 @@
 {{ $separators := .Params.separators | default (slice) }}
 {{ $depth := .Scratch.Get "menu-depth" }}
+
 <li class="relative group/menu-depth-{{ $depth }}">
-  <a href="{{ .Permalink }}" class="block px-2 py-1 text-[#f8fafb] hover:bg-[#1678b5]">
+  <a href="{{ .Permalink }}" class="menu-item">
     {{ .Title }}
   </a>
 
@@ -9,9 +10,9 @@
   <!-- Set the submenu class based on the depth -->
   {{ $ulClass := "" }}
   {{ if eq $depth 0 }}
-  {{ $ulClass = printf "absolute hidden bg-[#23282e] list-none p-0 z-50 w-max min-w-full top-full left-0 group-hover/menu-depth-%d:block" $depth }}
+  {{ $ulClass = printf "dropdown-menu group-hover/menu-depth-%d:block" $depth }}
   {{ else }}
-  {{ $ulClass = printf "absolute hidden bg-[#23282e] list-none p-0 z-50 w-max min-w-full top-0 left-full ml-0 group-hover/menu-depth-%d:block" $depth }}
+  {{ $ulClass = printf "dropdown-menu-nested group-hover/menu-depth-%d:block" $depth }}
   {{ end }}
 
   <ul class="{{ $ulClass }}" aria-label="Submenu">
@@ -21,7 +22,7 @@
     {{ partial "menu-item.html" $section }}
     {{ if in $separators (add $index 1) }}
     <li>
-      <hr class="border-t border-[#5a6067] my-2" />
+      <hr class="menu-separator" />
     </li>
     {{ end }}
     {{ end }}
@@ -30,13 +31,13 @@
     {{ range $index, $page := .Pages }}
     {{ if not $page.IsSection }}
     <li>
-      <a href="{{ $page.Permalink }}" class="block px-2 py-1 text-[#f8fafb] hover:bg-[#1678b5]">
+      <a href="{{ $page.Permalink }}" class="menu-item">
         {{ $page.Title }}
       </a>
     </li>
     {{ if in $separators (add $index 1) }}
     <li>
-      <hr class="border-t border-[#5a6067] my-2" />
+      <hr class="menu-separator" />
     </li>
     {{ end }}
     {{ end }}
