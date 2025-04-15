@@ -1,1 +1,31 @@
 /* Navigation menu and items */
+
+@import "../base/colors.css";
+
+/* Components */
+@import "../components/dropdowns.css"; /* Import dropdowns first */
+
+@layer utilities {
+  /* Default navigation styles */
+  .nav-default {
+    background-color: var(--color-xp12-menu-bg); /* Default to bg-gray-800 */
+    color: var(--color-xp12-menu-text); /* Default to text-gray-100 */
+  }
+
+  /* Menu item styling */
+  .menu-item {
+    @apply block px-2 py-1;
+    color: var(--color-xp12-menu-text);
+  }
+
+  .menu-item:hover {
+    background-color: var(--color-xp12-menu-hover);
+  }
+
+  /* Separator styling */
+  .menu-separator {
+    @apply border-t my-2;
+    border-color: var(--color-xp12-separator);
+  }
+
+}

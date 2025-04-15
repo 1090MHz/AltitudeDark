@@ -1,1 +1,37 @@
 /* Custom dropdowns */
+
+@import "../base/colors.css";
+
+@layer components {
+
+  /* Base dropdown menu (applies to all levels) */
+  .dropdown-menu {
+    @apply absolute hidden list-none p-0 z-50 w-max min-w-full;
+    background-color: var(--color-xp12-menu-bg);
+    color: var(--color-xp12-menu-text);
+  }
+
+  /* First-level dropdown menu (drops down) */
+  .dropdown:hover > .dropdown-menu {
+    @apply block top-full left-0;
+  }
+
+  /* Nested menu (dropright / dropend) */
+  .dropend {
+    @apply relative;
+  }
+
+  .dropend:hover > .dropdown-menu {
+    @apply block top-0 left-full;
+  }
+
+  /* Optional: dropdown-submenu helper if you want extra clarity */
+  .dropdown-submenu {
+    @apply relative;
+  }
+
+  /* Menu item styling (optional but common in Bootstrap-like UI) */
+  .dropdown-menu li a {
+    @apply block px-4 py-2 text-sm whitespace-nowrap hover:bg-gray-100;
+  }
+}
