@@ -1,45 +1,40 @@
 {{ $separators := .Params.separators | default (slice) }}
 {{ $depth := .Scratch.Get "menu-depth" }}
 
-<li class="relative group/menu-depth-{{ $depth }}">
+{{ $isTopLevel := eq $depth 0 }}
+{{ $isExpandable := or .Sections .Pages }}
+{{ $dropClass := cond (and (not $isTopLevel) $isExpandable) "dropend" "" }}
+
+<li class="relative group/menu-depth-{{ $depth }} {{ $dropClass }}">
   <a href="{{ .Permalink }}" class="menu-item">
     {{ .Title }}
   </a>
 
-  {{ if or .Sections .Pages }}
-  <!-- Set the submenu class based on the depth -->
-  {{ $ulClass := "" }}
-  {{ if eq $depth 0 }}
-  {{ $ulClass = printf "dropdown-menu group-hover/menu-depth-%d:block" $depth }}
-  {{ else }}
-  {{ $ulClass = printf "dropdown-menu-nested group-hover/menu-depth-%d:block" $depth }}
-  {{ end }}
+  {{ if $isExpandable }}
+  <ul class="dropdown-menu group-hover/menu-depth-{{ $depth }}:block" aria-label="Submenu">
 
-  <ul class="{{ $ulClass }}" aria-label="Submenu">
-    <!-- Include subsections -->
-    {{ range $index, $section := .Sections }}
+    {{ $items := union .Sections .Pages }}
+    {{ $sorted := sort $items "Weight" }}
+
+    {{ range $index, $item := $sorted }}
+    {{ if $item.IsSection }}
+    <!-- Handle subsections -->
     {{ .Scratch.Set "menu-depth" (add ($.Scratch.Get "menu-depth") 1) }}
-    {{ partial "menu-item.html" $section }}
-    {{ if in $separators (add $index 1) }}
+    {{ partial "menu-item.html" $item }}
+    {{ else }}
+    <!-- Handle regular pages -->
     <li>
-      <hr class="menu-separator" />
-    </li>
-    {{ end }}
-    {{ end }}
-
-    <!-- Include regular pages, but exclude _index.md -->
-    {{ range $index, $page := .Pages }}
-    {{ if not $page.IsSection }}
-    <li>
-      <a href="{{ $page.Permalink }}" class="menu-item">
-        {{ $page.Title }}
+      <a href="{{ $item.Permalink }}" class="menu-item">
+        {{ $item.Title }}
       </a>
     </li>
+    {{ end }}
+
+    <!-- Add separator if needed -->
     {{ if in $separators (add $index 1) }}
     <li>
       <hr class="menu-separator" />
     </li>
-    {{ end }}
     {{ end }}
     {{ end }}
   </ul>
