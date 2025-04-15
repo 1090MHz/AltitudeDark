@@ -1,11 +1,13 @@
 {{ define "main" }}
-<h1 class="text-3xl font-bold mb-4">{{ .Title }}</h1>
-<div class="prose mb-6">{{ .Content }}</div>
+<div class="prose">
+  <h1>{{ .Title }}</h1>
+  {{ .Content }}
+</div>
 {{ if not .Params.disableList }}
 <ul class="space-y-2">
   {{ range .Pages.ByWeight }}
   <li>
-    <a href="{{ .RelPermalink }}" class="text-blue-500 hover:underline">
+    <a href="{{ .RelPermalink }}">
       {{ .Title }}
     </a>
   </li>
