@@ -1,9 +1,9 @@
 {{ define "main" }}
-{{ if not (eq .Params.showTitle false) }}
-<h1 class="text-4xl font-bold mb-6">{{ .Title }}</h1>
+<div class="prose">
+  <h1>{{ .Title }}</h1>
+  {{ .Content }}
+</div>
 {{ end }}
-
-<div class="prose prose-xlg mb-8 max-w-full">{{ .Content }}</div>
 
 <div class="flex justify-between mt-8">
   {{ with .NextInSection }}
