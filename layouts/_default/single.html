@@ -5,6 +5,7 @@
 </div>
 {{ end }}
 
+{{ define "navigation" }}
 <div class="flex justify-between mt-8">
   {{ with .NextInSection }}
   <a href="{{ .RelPermalink }}" class="text-blue-500 hover:underline">← {{ .Title }}</a>
