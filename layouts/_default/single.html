@@ -1,11 +1,11 @@
 {{ define "main" }}
-<div class="prose">
+<div class="prose prose-invert dark">
   <h1>{{ .Title }}</h1>
   {{ .Content }}
 </div>
 {{ end }}
 
-{{ define "navigation" }}
+{{ define "pagination" }}
 <div class="flex justify-between mt-8">
   {{ with .NextInSection }}
   <a href="{{ .RelPermalink }}" class="text-blue-500 hover:underline">← {{ .Title }}</a>
