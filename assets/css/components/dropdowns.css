@@ -1,0 +1,17 @@
+/* Custom dropdowns */
+
+@import "../base/colors.css";
+
+@layer components {
+  /* Base dropdown menu (applies to all levels) */
+  .dropdown-menu {
+    @apply absolute hidden list-none p-0 z-50 w-max min-w-full;
+    background-color: var(--color-xp12-menu-bg);
+    color: var(--color-xp12-menu-text);
+  }
+
+  /* Positioning for nested dropdowns */
+  .dropend > .dropdown-menu {
+    @apply top-0 left-full;
+  }
+}

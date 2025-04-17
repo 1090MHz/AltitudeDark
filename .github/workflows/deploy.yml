@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - main
+      - tailwind # Add any other branches you want to trigger the workflow
 
 jobs:
   deploy:
@@ -14,33 +15,50 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      # Step 2: Set up Hugo
+      # Step 2: Set up Node.js (for Tailwind build)
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '20'
+
+      # Step 3: Install dependencies and build Tailwind CSS
+      - name: Install Node.js dependencies and build CSS
+        run: |
+          npm ci
+          npm run build
+
+      # Step 4: Set up Hugo
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v2
         with:
           hugo-version: 'latest'
 
-      # Step 3: Copy the theme into the exampleSite/themes directory
+      # Step 5: Copy the theme into the exampleSite/themes directory
       - name: Copy theme to exampleSite
         run: |
           mkdir -p exampleSite/themes/AltitudeDark
           rsync -av --exclude=exampleSite --exclude=.git ./ exampleSite/themes/AltitudeDark
 
-      # Step 4: Update baseURL in hugo.toml
-      - name: Update baseURL
-        run: |
-          sed -i 's|https://example.org/|https://1090mhz.github.io/AltitudeDark/|' exampleSite/hugo.toml
-
-      # Step 5: Build the exampleSite
+      # Step 6: Build the exampleSite
       - name: Build exampleSite
         run: |
           cd exampleSite
-          hugo --minify
+          hugo --minify --themesDir ../.. --baseURL https://1090mhz.github.io/AltitudeDark/
 
-      # Step 6: Deploy to GitHub Pages
+      # Step 7: Deploy to GitHub Pages from the main branch
       - name: Deploy to GitHub Pages
+        if: github.ref == 'refs/heads/main'
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: exampleSite/public  # Hugo's default output directory
-          publish_branch: gh-pages
+          publish_dir: exampleSite/public
+          publish_branch: gh-pages  # Main deploy branch
+
+      # Step 7b: Deploy to GitHub Pages from the Tailwind branch
+      - name: Deploy to GitHub Pages (tailwind)
+        if: github.ref == 'refs/heads/tailwind'
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: exampleSite/public
+          publish_branch: gh-pages-tailwind # Tailwind deploy branch

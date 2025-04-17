@@ -1,0 +1,53 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+/* @config "./tailwind.config.js"; */
+
+/* Base styles */
+@import "./base/colors.css";           /* Global color definitions */
+@import "./base/fonts.css";            /* Global font settings */
+@import "./base/preflight.css";        /* Normalize or reset styles */
+@import "./base/typography.css";       /* Base typography styles */
+
+/* Components */
+@import "./components/alerts.css";     /* Custom alerts */
+@import "./components/buttons.css";    /* Custom buttons */
+@import "./components/cards.css";      /* Custom cards */
+@import "./components/dropdowns.css";  /* Custom dropdowns */
+@import "./components/forms.css";      /* Custom forms */
+@import "./components/images.css";     /* Image gallery, avatars, etc. */
+@import "./components/links.css";      /* Custom links */
+@import "./components/modals.css";     /* Custom modals */
+@import "./components/tables.css";     /* Custom tables */
+@import "./components/tooltips.css";   /* Custom tooltips */
+
+/* Effects */
+@import "./effects/loaders.css";       /* Loader animations (e.g., spinners) */
+@import "./effects/spinners.css";      /* Custom spinner styles */
+@import "./effects/transitions.css";   /* Transition-related animations */
+
+/* Indicators */
+@import "./indicators/badges.css";     /* Badge styles */
+@import "./indicators/breadcrumbs.css";/* Breadcrumb styles */
+@import "./indicators/pagination.css"; /* Pagination styles */
+@import "./indicators/progress.css";   /* Progress bar styles */
+@import "./indicators/tags.css";       /* Tag styles */
+
+/* Layout and structure */
+@import "./layout/footers.css";        /* Footer styles */
+@import "./layout/headers.css";        /* Header styles */
+@import "./layout/navigation.css";     /* Navigation menu and items */
+@import "./layout/sidebars.css";       /* Sidebar styles */
+@import "./layout/toolbars.css";       /* Toolbar styles */
+
+/* Themes */
+@import "./themes/dark.css";           /* Dark mode theme styles */
+@import "./themes/light.css";          /* Light mode theme styles (if applicable) */
+
+/* Utilities */
+@import "./utilities/animations.css";  /* Keyframe animation utilities */
+@import "./utilities/borders.css";     /* Border width, radius, and color utilities */
+@import "./utilities/lists.css";       /* List-specific utility classes (optional) */
+@import "./utilities/shadows.css";     /* Shadow utilities */
+@import "./utilities/spacing.css";     /* Margin, padding, gap utilities */
+@import "./utilities/transitions.css"; /* Transition effects */
+@import "./utilities/z-index.css";     /* Z-index utilities */
