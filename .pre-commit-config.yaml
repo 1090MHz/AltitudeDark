@@ -27,6 +27,7 @@ repos:
     rev: v2.3.0
     hooks:
       - id: prettier
+        additional_dependencies: ["prettier-plugin-go-template"]
         files: \.(css|html|js|json|md)$
 
   # CSSLint for linting CSS files
