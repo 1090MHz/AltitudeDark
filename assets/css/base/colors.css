@@ -1,11 +1,10 @@
 /* Global color definitions */
 
 @theme {
-    --color-xp12-bg: #000000;
-    --color-xp12-menu-text: #f8fafb;
-    --color-xp12-link: #3794ff;
-    --color-xp12-menu-bg: #23282e;
-    --color-xp12-menu-hover: #1678b5;
-    --color-xp12-separator: #5a6067;
-  }
-  
+  --color-xp12-bg: #000000;
+  --color-xp12-menu-text: #f8fafb;
+  --color-xp12-link: #3794ff;
+  --color-xp12-menu-bg: #23282e;
+  --color-xp12-menu-hover: #1678b5;
+  --color-xp12-separator: #5a6067;
+}
