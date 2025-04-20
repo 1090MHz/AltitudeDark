@@ -5,6 +5,7 @@ description: "Sample article showcasing basic Markdown syntax and formatting for
 tags: ["markdown", "css", "html", "sample"]
 type: "sample"
 layout: "single"
+headless: true
 ---
 
 This article offers a sample of basic Markdown formatting that can be used in
