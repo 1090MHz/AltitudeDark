@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="{{ .Site.LanguageCode | default "en" }}" class="dark">
+{{ $lang := .Params.lang | default .Site.LanguageCode | default "en" }}
+<html lang="{{ $lang }}" class="dark">
 
 <head>
   <meta charset="UTF-8" />
