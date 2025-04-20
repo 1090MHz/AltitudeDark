@@ -1,0 +1,37 @@
+# See https://pre-commit.com for more information
+# See https://pre-commit.com/hooks.html for more hooks
+repos:
+  # Pre-commit hooks for general file checks
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.1.0
+    hooks:
+      - id: check-json
+      - id: check-merge-conflict
+      - id: check-toml
+      - id: check-xml
+      - id: check-yaml
+      - id: end-of-file-fixer
+      - id: mixed-line-ending
+        args: [--fix=no]
+      - id: pretty-format-json
+        args:
+          - --indent
+          - "4"
+          - --autofix
+          - --no-sort-keys
+      - id: trailing-whitespace
+        args: [--markdown-linebreak-ext=md]
+
+  # Prettier for formatting CSS, HTML, JS, JSON, and Markdown
+  - repo: https://github.com/pre-commit/mirrors-prettier
+    rev: v2.3.0
+    hooks:
+      - id: prettier
+        files: \.(css|html|js|json|md)$
+
+  # CSSLint for linting CSS files
+  - repo: https://github.com/pre-commit/mirrors-csslint
+    rev: v1.0.5
+    hooks:
+      - id: csslint
+        files: ^(?!.*tailwind\.css$).*\.css$
