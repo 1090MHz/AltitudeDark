@@ -2,6 +2,11 @@
 @plugin "@tailwindcss/typography";
 /* @config "./tailwind.config.js"; */
 
+/* This is the main CSS file for the project.
+ * It imports all necessary stylesheets and components.
+ * The order of imports is important for overriding styles.
+ */
+
 /* Base styles */
 @import "./base/colors.css";           /* Global color definitions */
 @import "./base/fonts.css";            /* Global font settings */
