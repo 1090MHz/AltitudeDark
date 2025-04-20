@@ -1,17 +1,22 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>{{ .Title | default "My Hugo Site" }}</title>
-{{ $desc := .Description | default "A Hugo site using the AltitudeDark theme." | htmlEscape }}
-<meta name="description" content="{{ $desc }}">
+{{ $desc := .Description | default "A Hugo site using the AltitudeDark theme." |
+  htmlEscape
+}}
+<meta name="description" content="{{ $desc }}" />
 
 <!-- Fonts -->
 {{ partial "fonts.html" . }}
 
+
 <!-- Main CSS (Tailwind) -->
 {{ partial "style.html" . }}
 
+
 <!-- Icon Libraries -->
 {{ partial "fontawesome.html" . }}
+
 
 <!-- Favicon and Site Icons -->
 {{ partial "favicon.html" . }}

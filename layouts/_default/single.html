@@ -1,22 +1,24 @@
 {{ define "main" }}
-<div class="prose prose-invert dark">
-  <h1>{{ .Title }}</h1>
-  {{ .Content }}
-</div>
+  <div class="prose prose-invert dark">
+    <h1>{{ .Title }}</h1>
+    {{ .Content }}
+  </div>
 {{ end }}
-
 {{ define "pagination" }}
-<div class="flex justify-between mt-8">
-  {{ with .NextInSection }}
-  <a href="{{ .RelPermalink }}" class="text-blue-500 hover:underline">← {{ .Title }}</a>
-  {{ else}}
-  <span class="text-gray-500">No prev section</span>
-  {{ end }}
-
-  {{ with .PrevInSection }}
-  <a href="{{ .RelPermalink }}" class="text-blue-500 hover:underline">{{ .Title }} →</a>
-  {{ else}}
-  <span class="text-gray-500">No next section</span>
-  {{ end }}
-</div>
+  <div class="flex justify-between mt-8">
+    {{ with .NextInSection }}
+      <a href="{{ .RelPermalink }}" class="text-blue-500 hover:underline"
+        >← {{ .Title }}</a
+      >
+    {{ else }}
+      <span class="text-gray-500">No prev section</span>
+    {{ end }}
+    {{ with .PrevInSection }}
+      <a href="{{ .RelPermalink }}" class="text-blue-500 hover:underline"
+        >{{ .Title }} →</a
+      >
+    {{ else }}
+      <span class="text-gray-500">No next section</span>
+    {{ end }}
+  </div>
 {{ end }}

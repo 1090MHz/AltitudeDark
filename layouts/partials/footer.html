@@ -4,22 +4,22 @@
       &copy; {{ now.Format "2006" }} {{ .Site.Title }}. All rights reserved.
     </p>
     {{ if .Site.Params.footerLinks }}
-    <nav>
-      <ul class="flex space-x-4">
-        {{ range .Site.Params.footerLinks }}
-        <li>
-          <a
-            href="{{ .url }}"
-            class="text-blue-400 hover:text-blue-600"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            {{ .name }}
-          </a>
-        </li>
-        {{ end }}
-      </ul>
-    </nav>
+      <nav>
+        <ul class="flex space-x-4">
+          {{ range .Site.Params.footerLinks }}
+            <li>
+              <a
+                href="{{ .url }}"
+                class="text-blue-400 hover:text-blue-600"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {{ .name }}
+              </a>
+            </li>
+          {{ end }}
+        </ul>
+      </nav>
     {{ end }}
   </div>
 </footer>

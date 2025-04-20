@@ -1,16 +1,15 @@
 {{ define "main" }}
-<div class="prose prose-invert dark">
-  <h1>{{ .Title }}</h1>
-  {{ .Content }}
-</div>
-{{ if not .Params.disableList }}
-<ul class="space-y-2">
-  {{ range .Pages.ByWeight }}
-  <li>
-    <a href="{{ .RelPermalink }}">
-      {{ .Title }}
-    </a>
-  </li>
+  <div class="prose prose-invert dark">
+    <h1>{{ .Title }}</h1>
+    {{ .Content }}
+  </div>
+  {{ if not .Params.disableList }}
+    <ul class="space-y-2">
+      {{ range .Pages.ByWeight }}
+        <li>
+          <a href="{{ .RelPermalink }}"> {{ .Title }} </a>
+        </li>
+      {{ end }}
+    </ul>
   {{ end }}
-</ul>
-{{ end }} {{ end }}
+{{ end }}

@@ -1,23 +1,39 @@
-<!DOCTYPE html>
+<!doctype html>
 {{ $lang := .Params.lang | default .Site.LanguageCode | default "en" }}
 <html lang="{{ $lang }}" class="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    {{ partial "head.html" . }}
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  {{ partial "head.html" . }}
-</head>
-
-<body class="flex flex-col min-h-screen bg-body-bg text-body-text font-comic dark:bg-gray-900 dark:text-gray-100">
-  {{ block "navigation" . }}
-  {{ partial "header.html" . }}
-  {{ end }}
-  <main class="flex-grow w-full p-4 bg-body-bg text-body-text font-comic dark:bg-gray-800 dark:text-gray-200">
-    {{ block "main" . }}{{ end }}
-  </main>
-  {{ block "pagination" . }}
-  {{ end }}
-  {{ partial "footer.html" . }}
-</body>
-
+  <body
+    class="
+      flex flex-col
+      min-h-screen
+      bg-body-bg
+      text-body-text
+      font-comic
+      dark:bg-gray-900
+      dark:text-gray-100
+    "
+  >
+    {{ block "navigation" . }}{{ partial "header.html" . }}{{ end }}
+    <main
+      class="
+        flex-grow
+        w-full
+        p-4
+        bg-body-bg
+        text-body-text
+        font-comic
+        dark:bg-gray-800
+        dark:text-gray-200
+      "
+    >
+      {{ block "main" . }}{{ end }}
+    </main>
+    {{ block "pagination" . }}{{ end }}
+    {{ partial "footer.html" . }}
+  </body>
 </html>
