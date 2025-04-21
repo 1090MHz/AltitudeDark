@@ -1,14 +1,9 @@
 {{ $separators := .Params.separators | default (slice) }}
-{{ $depth :=
-  .Scratch.Get "menu-depth"
-}}
+{{ $depth := .Scratch.Get "menu-depth" }}
+
 {{ $isTopLevel := eq $depth 0 }}
-{{ $isExpandable
-  := or .Sections .Pages
-}}
-{{ $dropClass := cond (and (not $isTopLevel)
-  $isExpandable) "dropend" ""
-}}
+{{ $isExpandable := or .Sections .Pages }}
+{{ $dropClass := cond (and (not $isTopLevel) $isExpandable) "dropend" "" }}
 
 
 <li class="relative group/menu-depth-{{ $depth }} {{ $dropClass }}">
