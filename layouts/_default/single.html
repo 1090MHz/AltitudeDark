@@ -5,7 +5,7 @@
   </div>
 {{ end }}
 {{ define "pagination" }}
-  <div class="flex justify-between mt-8">
+  <div class="mt-8 flex justify-between">
     {{ with .NextInSection }}
       <a href="{{ .RelPermalink }}" class="text-blue-500 hover:underline"
         >← {{ .Title }}</a

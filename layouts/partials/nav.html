@@ -1,13 +1,13 @@
 {{ $font := .Site.Params.menuFont | default "font-roboto" }}
 <nav class="{{ $font }}">
-  <ul class="flex space-x-4 list-none p-0 m-0">
+  <ul class="m-0 flex list-none space-x-4 p-0">
     <!-- Add HOME button with Font Awesome icon -->
     {{ if .Site.Params.showHomeIcon }}
       <!-- Conditionally -->
       <li>
         <a
           href="/"
-          class="text-menu-text font-bold px-4 py-2 flex items-center space-x-2"
+          class="text-menu-text flex items-center space-x-2 px-4 py-2 font-bold"
         >
           <i class="fas fa-home"></i>
           <!-- Font Awesome Home Icon -->
@@ -26,7 +26,7 @@
     <!-- Conditionally include top-level pages -->
     {{ if .Site.Params.includeTopLevelPagesInMenu }}
       {{ range .Site.RegularPages }}
-        <li class="relative group">
+        <li class="group relative">
           <!-- <a href="{{ .Permalink }}" class="text-menu-text hover:text-link-blue"> -->
           <a href="{{ .Permalink }}"> {{ .Title }} </a>
         </li>

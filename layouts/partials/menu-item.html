@@ -6,7 +6,7 @@
 {{ $dropClass := cond (and (not $isTopLevel) $isExpandable) "dropend" "" }}
 
 
-<li class="relative group/menu-depth-{{ $depth }} {{ $dropClass }}">
+<li class="group/menu-depth-{{ $depth }} {{ $dropClass }} relative">
   <a href="{{ .Permalink }}" class="menu-item"> {{ .Title }} </a>
 
   {{ if $isExpandable }}
