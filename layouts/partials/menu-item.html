@@ -16,6 +16,7 @@
     >
       {{ $items := union .Sections .Pages }}
       {{ $sorted := sort $items "Weight" }}
+
       {{ range $index, $item := $sorted }}
         {{ if $item.IsSection }}
           <!-- Handle subsections -->
