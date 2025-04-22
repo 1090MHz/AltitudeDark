@@ -5,7 +5,7 @@
 @layer components {
   /* Base dropdown menu (applies to all levels) */
   .dropdown-menu {
-    @apply absolute hidden list-none p-0 z-50 w-max min-w-full;
+    @apply absolute z-50 hidden w-max min-w-full list-none p-0;
     background-color: var(--color-xp12-menu-bg);
     color: var(--color-xp12-menu-text);
   }
