@@ -24,7 +24,7 @@
 
   /* Separator styling */
   .menu-separator {
-    @apply border-t my-2;
+    @apply my-2 border-t;
     border-color: var(--color-xp12-separator);
   }
 }
