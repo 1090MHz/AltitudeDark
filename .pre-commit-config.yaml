@@ -34,9 +34,20 @@ repos:
         files: \.(css|html|js|json|md)$
         exclude: ^(package-lock\.json|assets/css/tailwind\.css)$
 
-  # CSSLint for linting CSS files
-  - repo: https://github.com/pre-commit/mirrors-csslint
-    rev: v1.0.5
+    # Stylelint (local hook) for linting modern CSS
+  - repo: local
     hooks:
-      - id: csslint
+      - id: stylelint
+        name: stylelint
+        entry: npx stylelint
+        language: system
+        types: [css]
         files: ^(?!.*tailwind\.css$).*\.css$
+
+      - id: stylelint-fix
+        name: stylelint --fix
+        entry: npx stylelint --fix
+        language: system
+        types: [css]
+        files: ^(?!.*tailwind\.css$).*\.css$
+        pass_filenames: true
