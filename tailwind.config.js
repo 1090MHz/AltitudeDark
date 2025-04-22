@@ -4,6 +4,7 @@
 
 module.exports = {
   content: ["./layouts/**/*.html", "./content/**/*.md", "./static/**/*.js"],
+  darkMode: "class",
   theme: {
     extend: {},
   },
