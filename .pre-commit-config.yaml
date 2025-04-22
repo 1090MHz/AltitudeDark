@@ -32,7 +32,7 @@ repos:
           - prettier-plugin-go-template
           - prettier-plugin-tailwindcss
         files: \.(css|html|js|json|md)$
-        exclude: ^assets/css/tailwind\.css$
+        exclude: ^(package-lock\.json|assets/css/tailwind\.css)$
 
   # CSSLint for linting CSS files
   - repo: https://github.com/pre-commit/mirrors-csslint
