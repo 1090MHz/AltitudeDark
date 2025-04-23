@@ -40,14 +40,22 @@ repos:
       - id: stylelint
         name: stylelint
         entry: npx stylelint
-        language: system
+        language: node
         types: [css]
         files: ^(?!.*tailwind\.css$).*\.css$
+        additional_dependencies:
+          - stylelint
+          - stylelint-config-standard
+          - stylelint-config-tailwindcss
 
       - id: stylelint-fix
         name: stylelint --fix
         entry: npx stylelint --fix
-        language: system
+        language: node
         types: [css]
         files: ^(?!.*tailwind\.css$).*\.css$
         pass_filenames: true
+        additional_dependencies:
+          - stylelint
+          - stylelint-config-standard
+          - stylelint-config-tailwindcss
