@@ -7,12 +7,14 @@
 /* Tailwind will now be able to use the fonts properly */
 
 /* Font for Roboto */
+
 /* This is the default font for the theme navigation menu */
 .font-roboto {
-  font-family: "Roboto", sans-serif;
+  font-family: Roboto, sans-serif;
 }
 
 /* Font for Atkinson Hyperlegible Next */
+
 /* This is the default font for the theme content */
 .font-atkinson {
   font-family: "Atkinson Hyperlegible Next", sans-serif;
