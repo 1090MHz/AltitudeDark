@@ -1,0 +1,10 @@
+<a href="{{ .Get "href" | default "#" }}" 
+   class="inline-block px-6 py-3 text-lg font-semibold text-white rounded-lg shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2 transition {{ .Get "class" }}"
+   style="background-color: var(--color-xp12-button);"
+   onmouseover="this.style.backgroundColor='var(--color-xp12-button-hover)';"
+   onmouseout="this.style.backgroundColor='var(--color-xp12-button)';"
+   {{ with .Get "action" }}data-action="{{ . }}"{{ end }}
+   {{ with .Get "target" }}target="{{ . }}"{{ end }}
+   {{ with .Get "rel" }}rel="{{ . }}"{{ end }}>
+  {{ .Get "text" | default "Click Me" }}
+</a>
