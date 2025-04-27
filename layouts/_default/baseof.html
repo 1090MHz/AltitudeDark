@@ -10,7 +10,7 @@
   <body
     class="bg-body-bg text-body-text font-comic flex min-h-screen flex-col dark:bg-gray-900 dark:text-gray-100"
   >
-    {{ block "header" . }}{{ partial "header.html" . }}{{ end }}
+    {{ block "header" . }}{{ template "templates/header.html" . }}{{ end }}
     <!-- Navigation partial is included in the header -->
     <main
       class="bg-body-bg text-body-text font-comic w-full flex-grow p-4 dark:bg-gray-800 dark:text-gray-200"
