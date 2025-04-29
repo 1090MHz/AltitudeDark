@@ -10,4 +10,5 @@ module.exports = {
     // Enforce long hex codes like #ffffff instead of #fff
     "color-hex-length": "long",
   },
+  ignoreFiles: ["static/css/style.css", "static/css/tailwind.css"],
 };
