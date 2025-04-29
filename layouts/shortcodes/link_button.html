@@ -1,7 +1,8 @@
-<button
-  type="button"
+<a
+  href="{{ .Get "href" | default "#" }}"
   class="inline-block rounded-lg bg-[var(--color-xp12-button)] px-6 py-3 text-lg font-semibold shadow-md transition-all duration-300 hover:bg-[var(--color-xp12-button-hover)] focus:ring-2 focus:ring-offset-2 focus:outline-none"
-  {{ with .Get "data-action" }}data-action="{{ . }}"{{ end }}
+  {{ with .Get "target" }}target="{{ . }}"{{ end }}
+  {{ with .Get "rel" }}rel="{{ . }}"{{ end }}
 >
   {{ .Get "text" | default "Click Me" }}
-</button>
+</a>
