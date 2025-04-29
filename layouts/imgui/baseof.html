@@ -1,0 +1,16 @@
+<!doctype html>
+{{ $lang := .Params.lang | default .Site.LanguageCode | default "en" }}
+<html lang="{{ $lang }}" class="dark">
+  <head>
+    {{ block "head" . }}{{ partial "head.html" . }}{{ end }}
+  </head>
+  <body>
+    {{ block "header" . }}{{ template "templates/header.html" . }}{{ end }}
+    <!-- Navigation partial is included in the header -->
+    <main>
+      {{ block "main" . }}{{ end }}
+    </main>
+    {{ block "canvas" . }}{{ end }}
+    {{ block "script" . }}{{ end }}
+  </body>
+</html>
