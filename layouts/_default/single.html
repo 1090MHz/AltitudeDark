@@ -4,21 +4,7 @@
     {{ .Content }}
   </div>
 {{ end }}
+
 {{ define "pagination" }}
-  <div class="mt-8 flex justify-between">
-    {{ with .NextInSection }}
-      <a href="{{ .RelPermalink }}" class="text-blue-500 hover:underline"
-        >← {{ .Title }}</a
-      >
-    {{ else }}
-      <span class="text-gray-500">No prev section</span>
-    {{ end }}
-    {{ with .PrevInSection }}
-      <a href="{{ .RelPermalink }}" class="text-blue-500 hover:underline"
-        >{{ .Title }} →</a
-      >
-    {{ else }}
-      <span class="text-gray-500">No next section</span>
-    {{ end }}
-  </div>
+  {{ partial "pagination.html" . }}
 {{ end }}
