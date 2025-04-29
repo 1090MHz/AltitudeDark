@@ -1,7 +1,8 @@
 <div class="mt-8 flex justify-between">
   {{ with .NextInSection }}
     <a href="{{ .RelPermalink }}" class="text-blue-500 hover:underline">
-      ← {{ .Title }}
+      ←
+      {{ .Title }}
     </a>
   {{ else }}
     <span class="text-gray-500">No prev section</span>

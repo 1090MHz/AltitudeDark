@@ -1,91 +1,100 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <title>404 - Not Found</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js" crossorigin="anonymous"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Fira+Sans&display=swap" rel="stylesheet">
-  <script src="https://cdn.tailwindcss.com"></script>
-  <style>
-    body {
-      font-family: 'Fira Sans', sans-serif;
-    }
-    .letter {
-      width: 2.5rem;
-      height: 3rem;
-      background: black;
-      color: #FFD700;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 2rem;
-      font-weight: bold;
-      border: 1px solid #333;
-    }
-    .board {
-      display: flex;
-      gap: 0.25rem;
-      justify-content: center;
-      flex-wrap: wrap;
-    }
-  </style>
-</head>
-<body class="bg-black text-yellow-400 flex flex-col items-center justify-center min-h-screen p-4">
-  <h1 class="text-4xl mb-6 flex items-center justify-center">
-    <i class="fas fa-plane-departure"></i>
-    <span class="mx-2">Flight Cancelled</span>
-    <i class="fas fa-plane-arrival"></i>
-  </h1>
-  
+  <head>
+    <meta charset="UTF-8" />
+    <title>404 - Not Found</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"
+      crossorigin="anonymous"
+    ></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fira+Sans&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      body {
+        font-family: "Fira Sans", sans-serif;
+      }
+      .letter {
+        width: 2.5rem;
+        height: 3rem;
+        background: black;
+        color: #ffd700;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 2rem;
+        font-weight: bold;
+        border: 1px solid #333;
+      }
+      .board {
+        display: flex;
+        gap: 0.25rem;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+    </style>
+  </head>
+  <body
+    class="flex min-h-screen flex-col items-center justify-center bg-black p-4 text-yellow-400"
+  >
+    <h1 class="mb-6 flex items-center justify-center text-4xl">
+      <i class="fas fa-plane-departure"></i>
+      <span class="mx-2">Flight Cancelled</span>
+      <i class="fas fa-plane-arrival"></i>
+    </h1>
 
-  <div id="board" class="board mb-8">
-    <!-- JS will populate this -->
-  </div>
+    <div id="board" class="board mb-8">
+      <!-- JS will populate this -->
+    </div>
 
-  <p class="text-gray-400 text-lg flex items-center">
-    <i class="fas fa-plane-arrival"></i>
-    <span class="mx-2">Destination not found</span>
-    <i class="fas fa-plane-departure"></i>
-  </p>
-  <p class="text-lg font-semibold mt-4">
-    <a href="/" class="underline">Return to terminal</a>
-  </p>
-  
-  
-  
-  <script>
-    const text = "404 NOT FOUND";
-    const characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
-    const board = document.getElementById("board");
+    <p class="flex items-center text-lg text-gray-400">
+      <i class="fas fa-plane-arrival"></i>
+      <span class="mx-2">Destination not found</span>
+      <i class="fas fa-plane-departure"></i>
+    </p>
+    <p class="mt-4 text-lg font-semibold">
+      <a href="/" class="underline">Return to terminal</a>
+    </p>
 
-    // Create letters
-    for (let i = 0; i < text.length; i++) {
-      const span = document.createElement("span");
-      span.className = "letter";
-      span.dataset.final = text[i];
-      span.textContent = " ";
-      board.appendChild(span);
-    }
+    <script>
+      const text = "404 NOT FOUND";
+      const characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+      const board = document.getElementById("board");
 
-    // Animate letters
-    document.addEventListener("DOMContentLoaded", () => {
-      const letters = document.querySelectorAll(".letter");
+      // Create letters
+      for (let i = 0; i < text.length; i++) {
+        const span = document.createElement("span");
+        span.className = "letter";
+        span.dataset.final = text[i];
+        span.textContent = " ";
+        board.appendChild(span);
+      }
 
-      letters.forEach((letter, index) => {
-        setTimeout(() => {
-          const interval = setInterval(() => {
-            const randomChar = characters[Math.floor(Math.random() * characters.length)];
-            letter.textContent = randomChar;
-          }, 50);
+      // Animate letters
+      document.addEventListener("DOMContentLoaded", () => {
+        const letters = document.querySelectorAll(".letter");
 
+        letters.forEach((letter, index) => {
           setTimeout(() => {
-            clearInterval(interval);
-            letter.textContent = letter.dataset.final;
-          }, 1000 + index * 100);
-        }, index * 150);
+            const interval = setInterval(() => {
+              const randomChar =
+                characters[Math.floor(Math.random() * characters.length)];
+              letter.textContent = randomChar;
+            }, 50);
+
+            setTimeout(
+              () => {
+                clearInterval(interval);
+                letter.textContent = letter.dataset.final;
+              },
+              1000 + index * 100
+            );
+          }, index * 150);
+        });
       });
-    });
-  </script>
-</body>
+    </script>
+  </body>
 </html>
