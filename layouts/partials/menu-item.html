@@ -7,7 +7,17 @@
 
 
 <li class="group/menu-depth-{{ $depth }} {{ $dropClass }} relative">
-  <a href="{{ .Permalink }}" class="menu-item"> {{ .Title }} </a>
+  {{ if .Params.action }}
+    <a
+      href="javascript:void(0);"
+      class="menu-item"
+      data-action="{{ .Params.action }}"
+    >
+      {{ .Title }}
+    </a>
+  {{ else }}
+    <a href="{{ .Permalink }}" class="menu-item"> {{ .Title }} </a>
+  {{ end }}
 
   {{ if $isExpandable }}
     <ul
@@ -25,9 +35,19 @@
         {{ else }}
           <!-- Handle regular pages -->
           <li>
-            <a href="{{ $item.Permalink }}" class="menu-item">
-              {{ $item.Title }}
-            </a>
+            {{ if .Params.action }}
+              <a
+                href="javascript:void(0);"
+                class="menu-item"
+                data-action="{{ .Params.action }}"
+              >
+                {{ .Title }}
+              </a>
+            {{ else }}
+              <a href="{{ $item.Permalink }}" class="menu-item">
+                {{ .Title }}
+              </a>
+            {{ end }}
           </li>
         {{ end }}
 
