@@ -15,6 +15,10 @@
     >
       {{ .Title }}
     </a>
+  {{ else if .Params.disabled }}
+    <span class="menu-item menu-item-disabled">
+      {{ .Title }}
+    </span>
   {{ else }}
     <a href="{{ .Permalink }}" class="menu-item"> {{ .Title }} </a>
   {{ end }}
@@ -43,6 +47,10 @@
               >
                 {{ .Title }}
               </a>
+            {{ else if .Params.disabled }}
+              <span class="menu-item menu-item-disabled">
+                {{ .Title }}
+              </span>
             {{ else }}
               <a href="{{ $item.Permalink }}" class="menu-item">
                 {{ .Title }}
