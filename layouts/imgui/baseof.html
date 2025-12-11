@@ -4,7 +4,13 @@
   <head>
     {{ block "head" . }}{{ partial "head.html" . }}{{ end }}
   </head>
-  <body>
+  <body
+    {{ with .Params.background_image }}
+      class="has-bg" style="background-image: url('{{ . }}');"
+    {{ else }}
+      class="no-bg"
+    {{ end }}
+  >
     {{ block "header" . }}{{ template "templates/header.html" . }}{{ end }}
     <!-- Navigation partial is included in the header -->
     <main>
