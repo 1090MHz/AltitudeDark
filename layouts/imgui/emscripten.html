@@ -6,7 +6,7 @@
   />
 
   {{ partial "style.html" . }}
-  <title>Dear ImGui Emscripten example</title>
+  <title>{{ .Title | default "Dear ImGui Emscripten example" }}</title>
   <style>
     body {
       margin: 0;
