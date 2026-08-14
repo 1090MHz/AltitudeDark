@@ -14,13 +14,35 @@
 
   /* Menu item styling */
   .menu-item {
-    @apply block px-2 py-1;
+    @apply flex justify-between items-center gap-4 px-2 py-1;
 
     color: var(--color-xp12-menu-text);
   }
 
   .menu-item:hover {
     background-color: var(--color-xp12-menu-hover);
+  }
+
+  .menu-item-title {
+    flex-grow: 1;
+  }
+
+  .menu-item-shortcut {
+    @apply text-sm opacity-70;
+    flex-shrink: 0;
+  }
+
+  .menu-item-submenu-indicator {
+    flex-shrink: 0;
+  }
+
+  /* Disabled menu item styling */
+  .menu-item-disabled {
+    @apply cursor-not-allowed;
+  }
+
+  .menu-item-disabled:hover {
+    background-color: transparent;
   }
 
   /* Separator styling */
