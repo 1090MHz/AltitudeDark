@@ -15,6 +15,9 @@ module.exports = {
     "group-hover/menu-depth-3:block",
     "group-hover/menu-depth-4:block",
     // Although it is possible to use more than 4 levels of menu-depth, it is not recommended
+    // Opacity classes for menu items
+    "opacity-50",
+    "opacity-100",
   ],
   plugins: [require("@tailwindcss/typography")],
 };
