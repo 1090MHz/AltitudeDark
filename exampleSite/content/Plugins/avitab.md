@@ -1,4 +1,5 @@
 ---
 title: "AviTab"
-weight: 14
+weight: 3
+navigation: false # Non-functional menu item for X-Plane simulation
 ---

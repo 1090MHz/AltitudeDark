@@ -1,4 +1,5 @@
 ---
 title: "X-Camera"
-weight: 17
+weight: 24
+navigation: false # Non-functional menu item for X-Plane simulation
 ---

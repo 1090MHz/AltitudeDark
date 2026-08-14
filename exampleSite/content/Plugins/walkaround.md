@@ -1,4 +1,5 @@
 ---
 title: "Walkaround"
-weight: 20
+weight: 22
+navigation: false # Non-functional menu item for X-Plane simulation
 ---

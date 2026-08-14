@@ -1,4 +1,5 @@
 ---
 title: "Xchecklist"
-weight: 9
+weight: 25
+navigation: false # Non-functional menu item for X-Plane simulation
 ---

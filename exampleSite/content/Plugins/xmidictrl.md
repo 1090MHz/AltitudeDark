@@ -1,4 +1,5 @@
 ---
 title: "XMidiCtrl"
-weight: 18
+weight: 26
+navigation: false # Non-functional menu item for X-Plane simulation
 ---
