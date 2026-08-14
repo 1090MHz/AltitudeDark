@@ -1833,7 +1833,7 @@
     flex-shrink: 0;
   }
   .menu-item-disabled {
-    cursor: not-allowed;
+    cursor: default;
   }
   .menu-item-disabled:hover {
     background-color: transparent;
