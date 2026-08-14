@@ -38,7 +38,7 @@
 
   /* Disabled menu item styling */
   .menu-item-disabled {
-    @apply cursor-not-allowed;
+    @apply cursor-default;
   }
 
   .menu-item-disabled:hover {
