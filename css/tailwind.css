@@ -1835,9 +1835,6 @@
   .menu-item-disabled {
     cursor: default;
   }
-  .menu-item-disabled:hover {
-    background-color: transparent;
-  }
   .menu-separator {
     margin-block: calc(var(--spacing) * 2);
     border-top-style: var(--tw-border-style);
