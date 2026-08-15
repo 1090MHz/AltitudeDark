@@ -41,10 +41,6 @@
     @apply cursor-default;
   }
 
-  .menu-item-disabled:hover {
-    background-color: transparent;
-  }
-
   /* Separator styling */
   .menu-separator {
     @apply my-2 border-t;
