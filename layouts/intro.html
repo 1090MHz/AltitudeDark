@@ -11,17 +11,21 @@
     <!-- ✅ Transparent, floating navbar -->
     <div
       id="navbar"
-      class="fixed top-0 left-0 z-50 w-full bg-black/30 py-4 text-white transition-colors duration-300"
+      class="fixed top-0 left-0 z-50 w-full bg-black/30 py-4 text-white transition-colors duration-300 select-none"
+      style="user-select: none; -webkit-user-select: none; -webkit-user-drag: none; pointer-events: none;"
+      draggable="false"
     >
-      <nav class="flex w-full items-center justify-between pr-[10%] pl-[10%]">
+      <nav class="flex w-full items-center justify-between pr-[10%] pl-[10%]" style="user-select: none; -webkit-user-select: none; -webkit-user-drag: none; pointer-events: none;" draggable="false">
         <!-- Hero Button -->
-        <div class="flex flex-1 justify-start pl-[10vw]">
+        <div class="flex flex-1 justify-start pl-[10vw]" style="pointer-events: none;">
           {{ range $index, $page := where .Site.Pages "Section" "intro" }}
             {{ if eq $index 0 }}
               <a
                 href="#section-{{ $index }}"
                 data-link="section-{{ $index }}"
                 class="nav-link bg-opacity-40 rounded-md bg-black px-4 py-2 transition-colors duration-300 hover:bg-gray-600 active:bg-gray-800"
+                style="pointer-events: auto;"
+                draggable="false"
               >
                 {{ $page.Title }}
               </a>
@@ -30,13 +34,15 @@
         </div>
 
         <!-- Section Buttons -->
-        <div class="flex flex-1 justify-end gap-1 pr-[5vw]">
+        <div class="flex flex-1 justify-end gap-1 pr-[5vw]" style="pointer-events: none;">
           {{ range $index, $page := where .Site.Pages "Section" "intro" }}
             {{ if ne $index 0 }}
               <a
                 href="#section-{{ $index }}"
                 data-link="section-{{ $index }}"
                 class="nav-link bg-opacity-40 rounded-md bg-black px-4 py-2 transition-colors duration-300 hover:bg-gray-600 active:bg-gray-800"
+                style="pointer-events: auto;"
+                draggable="false"
               >
                 {{ $page.Title }}
               </a>

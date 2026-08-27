@@ -1,6 +1,7 @@
 ---
 title: "File"
 weight: 1
-separators: [1, 3, 6, 9]
+separators: [2, 4, 7, 10]
 disableList: true
+navigation: false # Non-functional menu item for X-Plane simulation
 ---

@@ -1,4 +1,5 @@
 ---
 title: "WebFMC"
-weight: 7
+weight: 23
+navigation: false # Non-functional menu item for X-Plane simulation
 ---

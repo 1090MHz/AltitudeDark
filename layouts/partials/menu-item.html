@@ -1,5 +1,7 @@
 {{ $separators := .Params.separators | default (slice) }}
 {{ $depth := .Scratch.Get "menu-depth" }}
+{{ $opacity := .Params.opacity | default 1.0 }}
+{{ $opacityClass := printf "opacity-%v" (mul $opacity 100 | int) }}
 
 {{ $isTopLevel := eq $depth 0 }}
 {{ $isExpandable := or .Sections .Pages }}
@@ -10,17 +12,26 @@
   {{ if .Params.action }}
     <a
       href="javascript:void(0);"
-      class="menu-item"
+      class="menu-item {{ $opacityClass }}"
       data-action="{{ .Params.action }}"
+      {{ if .Params.demoMessage }}data-demo-message="{{ .Params.demoMessage }}"{{ end }}
     >
-      {{ .Title }}
+      <span class="menu-item-title">{{ .Title }}</span>
+      {{ if .Params.shortcut }}<span class="menu-item-shortcut">{{ .Params.shortcut }}</span>{{ end }}
+      {{ if and (not $isTopLevel) $isExpandable }}<span class="menu-item-submenu-indicator">></span>{{ end }}
     </a>
-  {{ else if .Params.disabled }}
-    <span class="menu-item menu-item-disabled">
-      {{ .Title }}
+  {{ else if eq .Params.navigation false }}
+    <span class="menu-item menu-item-disabled {{ $opacityClass }}">
+      <span class="menu-item-title">{{ .Title }}</span>
+      {{ if .Params.shortcut }}<span class="menu-item-shortcut">{{ .Params.shortcut }}</span>{{ end }}
+      {{ if and (not $isTopLevel) $isExpandable }}<span class="menu-item-submenu-indicator">></span>{{ end }}
     </span>
   {{ else }}
-    <a href="{{ .Permalink }}" class="menu-item"> {{ .Title }} </a>
+    <a href="{{ .Permalink }}" class="menu-item {{ $opacityClass }}">
+      <span class="menu-item-title">{{ .Title }}</span>
+      {{ if .Params.shortcut }}<span class="menu-item-shortcut">{{ .Params.shortcut }}</span>{{ end }}
+      {{ if and (not $isTopLevel) $isExpandable }}<span class="menu-item-submenu-indicator">></span>{{ end }}
+    </a>
   {{ end }}
 
   {{ if $isExpandable }}
@@ -39,29 +50,36 @@
         {{ else }}
           <!-- Handle regular pages -->
           <li>
+            {{ $itemOpacity := .Params.opacity | default 1.0 }}
+            {{ $itemOpacityClass := printf "opacity-%v" (mul $itemOpacity 100 | int) }}
             {{ if .Params.action }}
               <a
                 href="javascript:void(0);"
-                class="menu-item"
+                class="menu-item {{ $itemOpacityClass }}"
                 data-action="{{ .Params.action }}"
+                {{ if .Params.demoMessage }}data-demo-message="{{ .Params.demoMessage }}"{{ end }}
               >
-                {{ .Title }}
+                <span class="menu-item-title">{{ .Title }}</span>
+                {{ if .Params.shortcut }}<span class="menu-item-shortcut">{{ .Params.shortcut }}</span>{{ end }}
               </a>
-            {{ else if .Params.disabled }}
-              <span class="menu-item menu-item-disabled">
-                {{ .Title }}
+            {{ else if eq .Params.navigation false }}
+              <span class="menu-item menu-item-disabled {{ $itemOpacityClass }}">
+                <span class="menu-item-title">{{ .Title }}</span>
+                {{ if .Params.shortcut }}<span class="menu-item-shortcut">{{ .Params.shortcut }}</span>{{ end }}
               </span>
             {{ else }}
-              <a href="{{ $item.Permalink }}" class="menu-item">
-                {{ .Title }}
+              <a href="{{ $item.Permalink }}" class="menu-item {{ $itemOpacityClass }}">
+                <span class="menu-item-title">{{ .Title }}</span>
+                {{ if .Params.shortcut }}<span class="menu-item-shortcut">{{ .Params.shortcut }}</span>{{ end }}
               </a>
             {{ end }}
           </li>
         {{ end }}
 
 
-        <!-- Add separator if needed -->
-        {{ if in $separators (add $index 1) }}
+        <!-- Add separator before next item if its weight is in separators -->
+        {{ $nextItem := index $sorted (add $index 1) }}
+        {{ if and $nextItem (in $separators $nextItem.Weight) }}
           <li>
             <hr class="menu-separator" />
           </li>
